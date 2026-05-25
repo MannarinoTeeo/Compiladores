@@ -116,38 +116,56 @@ g++ compilador.cpp -o compilador
 O projeto inclui dois arquivos de testes principais para comprovar o comportamento do analisador:
 
 #### 1. Entrada Válida (`entrada.cmp`)
-Contém uma sequência de comandos estruturada contendo comentários de linha única, comentários multilinha, espaços extras entre os tokens e todos os comandos suportados.
+Contém um script de automação de servidor coeso, com comentários de linha única, blocos de comentário multilinha, espaçamentos flexíveis e todos os comandos reconhecidos pela linguagem.
 
 ```
-// ==========================================================
-// AED COMPILADORES - EXEMPLO DE ENTRADAS VÁLIDAS
-// ==========================================================
+// =================================================================
+// CONFIGSCRIPT - SCRIPT DE CONFIGURAÇÃO E MANUTENÇÃO DO SERVIDOR (VÁLIDO)
+// =================================================================
 
-NumeroReal    3.14159
-Caractere     Z
+// 1. Definição da versão da API de processamento do sistema
+NumeroReal    2.5
 
-/* Testando se o pré-processador ignora corretamente
-   este comentário de múltiplas linhas */
+// 2. Modo de Depuração (Flag de caractere único: 'Y' para Sim, 'N' para Não)
+Caractere     Y
 
-Apagar        relatorio_mensal.pdf
-NomeComEspaço arquivo_de_sistema
-Especial      @#$%-!
-Unicode       你好
+/* 3. Bloco de Manutenção Preventiva:
+   Abaixo, limpamos os arquivos temporários do servidor anterior e
+   identificamos o nome da máquina no cluster interno do sistema. */
 
+Apagar        logs_temporarios.log
+NomeComEspaço servidor_producao_leste
+
+// 4. Parâmetros especiais de criptografia e identificador internacional (Unicode)
+Especial      #KeyGroup_Prod_99!
+Unicode       🌐_Servidor_Ativo_🌐
+
+// 5. Finalização estrutural do script
 FimDoArquivo
 ```
 
 #### 2. Entrada Inválida (`invalidos.cmp`)
-Simula um erro clássico de sintaxe onde o comando `Apagar` é declarado de forma vazia (sem seu respectivo argumento de valor).
+Demonstra como o analisador se comporta ao identificar um erro de sintaxe, onde o comando `Apagar` é invocado sem qualquer argumento logo antes de outro comando de declaração.
 
 ```
-NumeroReal    1.618
-Caractere     A
+// =================================================================
+// CONFIGSCRIPT - SCRIPT DE CONFIGURAÇÃO COM ERRO SINTÁTICO (INVÁLIDO)
+// =================================================================
 
-// --- ERRO SINTÁTICO AQUI (Sem valor correspondente) ---
+// 1. Definição da versão do sistema
+NumeroReal    2.5
+
+// 2. Modo de depuração ativo
+Caractere     Y
+
+// --- ERRO SINTÁTICO ---
+// O comando 'Apagar' exige o nome de um arquivo para ser executado.
+// Ao deixá-lo vazio ou pular direto para o próximo comando, o analisador sintático
+// identificará que 'NomeComEspaço' não é um argumento válido de 'Apagar', mas sim
+// outro comando reservado, abortando a compilação imediatamente.
 Apagar        
 
-NomeComEspaço documento_antigo
+NomeComEspaço servidor_desenvolvimento
 FimDoArquivo
 ```
 
@@ -163,13 +181,13 @@ Para rodar os testes informados, passe o arquivo de entrada desejado como argume
 ```
 **Saída Esperada no Terminal:**
 ```text
-Comando valido: 'NumeroReal' com valor '3.14159' (Linha 6)
-Comando valido: 'Caractere' com valor 'Z' (Linha 9)
-Comando valido: 'Apagar' com valor 'relatorio_mensal.pdf' (Linha 15)
-Comando valido: 'NomeComEspaço' com valor 'arquivo_de_sistema' (Linha 16)
-Comando valido: 'Especial' com valor '@#$%-!' (Linha 19)
-Comando valido: 'Unicode' com valor '你好' (Linha 20)
-Fim do arquivo encontrado na linha 25.
+Comando valido: 'NumeroReal' com valor '2.5' (Linha 6)
+Comando valido: 'Caractere' com valor 'Y' (Linha 9)
+Comando valido: 'Apagar' com valor 'logs_temporarios.log' (Linha 15)
+Comando valido: 'NomeComEspaço' com valor 'servidor_producao_leste' (Linha 16)
+Comando valido: 'Especial' com valor '#KeyGroup_Prod_99!' (Linha 19)
+Comando valido: 'Unicode' com valor '🌐_Servidor_Ativo_🌐' (Linha 20)
+Fim do arquivo encontrado na linha 23.
 ```
 
 #### Testando a Entrada Inválida:
@@ -178,9 +196,9 @@ Fim do arquivo encontrado na linha 25.
 ```
 **Saída Esperada no Terminal:**
 ```text
-Comando valido: 'NumeroReal' com valor '1.618' (Linha 5)
-Comando valido: 'Caractere' com valor 'A' (Linha 6)
-[ERRO SINTATICO] Esperado um valor apos o comando 'Apagar' na linha 11
+Comando valido: 'NumeroReal' com valor '2.5' (Linha 6)
+Comando valido: 'Caractere' com valor 'Y' (Linha 9)
+[ERRO SINTATICO] Esperado um valor apos o comando 'Apagar' na linha 18
 ```
 
 ---

@@ -1,14 +1,19 @@
-// ==========================================================
-// AED COMPILADORES - EXEMPLO DE ENTRADAS INVÁLIDAS (TESTE DE ERRO)
-// ==========================================================
+// =================================================================
+// CONFIGSCRIPT - SCRIPT DE CONFIGURAÇÃO COM ERRO SINTÁTICO (INVÁLIDO)
+// =================================================================
 
-NumeroReal    1.618
-Caractere     A
+// 1. Definição da versão do sistema
+NumeroReal    2.5
 
-// --- ERRO SINTÁTICO AQUI ---
-// O comando 'Apagar' foi declarado, mas nenhum valor foi fornecido após ele.
-// O analisador sintático deve capturar a ausência do valor e interromper a execução.
+// 2. Modo de depuração ativo
+Caractere     Y
+
+// --- ERRO SINTÁTICO ---
+// O comando 'Apagar' exige o nome de um arquivo para ser executado.
+// Ao deixá-lo vazio ou pular direto para o próximo comando, o analisador sintático
+// identificará que 'NomeComEspaço' não é um argumento válido de 'Apagar', mas sim
+// outro comando reservado, abortando a compilação imediatamente.
 Apagar        
 
-NomeComEspaço documento_antigo
+NomeComEspaço servidor_desenvolvimento
 FimDoArquivo

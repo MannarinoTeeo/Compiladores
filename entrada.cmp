@@ -1,25 +1,23 @@
-// ==========================================================
-// AED COMPILADORES - EXEMPLO DE ENTRADAS VÁLIDAS (CAMINHO FELIZ)
-// ==========================================================
+// =================================================================
+// CONFIGSCRIPT - SCRIPT DE CONFIGURAÇÃO E MANUTENÇÃO DO SERVIDOR (VÁLIDO)
+// =================================================================
 
-// Teste de comando com número real
-NumeroReal    3.14159
+// 1. Definição da versão da API de processamento do sistema
+NumeroReal    2.5
 
-// Teste de comando com caractere simples
-Caractere     Z
+// 2. Modo de Depuração (Flag de caractere único: 'Y' para Sim, 'N' para Não)
+Caractere     Y
 
-/* Testando se o pré-processador ignora corretamente
-   este comentário de múltiplas linhas e os espaços
-   extras entre o comando e o seu respectivo valor */
+/* 3. Bloco de Manutenção Preventiva:
+   Abaixo, limpamos os arquivos temporários do servidor anterior e
+   identificamos o nome da máquina no cluster interno do sistema. */
 
-Apagar        relatorio_mensal.pdf
-NomeComEspaço arquivo_de_sistema
+Apagar        logs_temporarios.log
+NomeComEspaço servidor_producao_leste
 
-// Teste de caracteres especiais e unicode
-Especial      @#$%-!
-Unicode       你好
+// 4. Parâmetros especiais de criptografia e identificador internacional (Unicode)
+Especial      #KeyGroup_Prod_99!
+Unicode       🌐_Servidor_Ativo_🌐
 
-// Linhas vazias estruturais para validação do limpador
-
-
+// 5. Finalização estrutural do script
 FimDoArquivo
