@@ -1,0 +1,11 @@
+# Executáveis compilados
+compilador
+compilador.exe
+
+# Arquivos temporários e de build do sistema
+*.o
+*.obj
+*.out
+.vs/
+.idea/
+.vscode/

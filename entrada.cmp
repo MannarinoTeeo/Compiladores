@@ -1,0 +1,25 @@
+// ==========================================================
+// AED COMPILADORES - EXEMPLO DE ENTRADAS VÁLIDAS (CAMINHO FELIZ)
+// ==========================================================
+
+// Teste de comando com número real
+NumeroReal    3.14159
+
+// Teste de comando com caractere simples
+Caractere     Z
+
+/* Testando se o pré-processador ignora corretamente
+   este comentário de múltiplas linhas e os espaços
+   extras entre o comando e o seu respectivo valor */
+
+Apagar        relatorio_mensal.pdf
+NomeComEspaço arquivo_de_sistema
+
+// Teste de caracteres especiais e unicode
+Especial      @#$%-!
+Unicode       你好
+
+// Linhas vazias estruturais para validação do limpador
+
+
+FimDoArquivo

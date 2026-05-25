@@ -1,0 +1,14 @@
+// ==========================================================
+// AED COMPILADORES - EXEMPLO DE ENTRADAS INVÁLIDAS (TESTE DE ERRO)
+// ==========================================================
+
+NumeroReal    1.618
+Caractere     A
+
+// --- ERRO SINTÁTICO AQUI ---
+// O comando 'Apagar' foi declarado, mas nenhum valor foi fornecido após ele.
+// O analisador sintático deve capturar a ausência do valor e interromper a execução.
+Apagar        
+
+NomeComEspaço documento_antigo
+FimDoArquivo
